@@ -1,4 +1,4 @@
-# Steps to create Galera VLAN
+# Steps to create Galera VLAN from marketplace
 
 # Overview:
 
