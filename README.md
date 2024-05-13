@@ -19,7 +19,7 @@ This document assumes that you have provisioned a galera cluster successfully vi
 
 # Steps Required:
 
-### Allocate VLAN IPs to Galera nodes
+### 1. Allocate VLAN IPs to Galera nodes
 
 When the Galera cluster is created, depending on your configuration, the nodes may not have VLAN IP assigned. Hence, assign the VLAN IP to the nodes.
 
@@ -39,7 +39,7 @@ ip addr | grep 10.0.0
 
 Exit Criteria: Ensure that all nodes has VLAN IP assigned.
 
-### Update each Galera Node firewall to accept VLAN CIDR
+### 2. Update each Galera Node firewall to accept VLAN CIDR
 
 Each nodes are protected by firewalld daemon. Update firewalld daemon to accept request within the VLAN CIDR.
 
@@ -63,7 +63,7 @@ firewall-cmd --list-all --zone=internal
 
 Exit Criteria: Ensure that CIDR range is added into the node’s firewall.
 
-### Update Galera configuration to use VLAN IPs
+### 3. Update Galera configuration to use VLAN IPs
 
 Update on every Galera node.
 
@@ -100,7 +100,7 @@ At this stage, you will have a working Galera cluster that is communicating via 
 
 Verify the entire cluster is working by create a database and run a remote sql test.
 
-### Create database and table
+### 1. Create database and table
 
 ```jsx
 mysql -u root -p 
@@ -109,7 +109,7 @@ create table test.flowers (`id` varchar(10));
 show tables in test;
 ```
 
-### Create a remote user
+### 2. Create a remote user
 
 ```jsx
 CREATE USER  'app'@'10.0.0.%' IDENTIFIED BY 'password';
@@ -119,7 +119,7 @@ GRANT ALL PRIVILEGES ON test.* TO 'app'@'10.0.0.%';
 SELECT User, Host FROM mysql.user;
 ```
 
-### Login from a remote client
+### 3. Login from a remote client
 
 Ensure that the remote client has a VLAN Ip address
 
