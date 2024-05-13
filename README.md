@@ -94,6 +94,8 @@ Exit Criteria: Ensure that mysql and cluster are running health with 3 nodes reg
 
 At this stage, you will have a working Galera cluster that is communicating via vlan.
 
+---
+
 # Additional Test
 
 Verify the entire cluster is working by create a database and run a remote sql test.
