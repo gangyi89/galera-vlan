@@ -27,7 +27,7 @@ When the Galera cluster is created, depending on your configuration, the nodes m
 1. Go to Linode Cloud Manager
 2. Select linode -> configurations tab -> Click on Edit
 3. Go to eth1 -> select VLAN -> input IPAM Address (ex 10.0.0.1/24)
-4. Reboot node(s)
+4. Reboot node(s) **ALWAYS reboot the node(s) 1 at a time**
 		
 ```
 
